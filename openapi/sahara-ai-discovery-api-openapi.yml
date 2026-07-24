@@ -1,0 +1,191 @@
+openapi: 3.1.0
+info:
+  title: Sahara AI Compute Discovery API
+  description: OpenAI-compatible inference and model-discovery API for the Sahara AI Developer Platform. Exposes a routed compute layer that fans requests out across multiple upstream providers (OpenAI, Lepton, Together, and others), plus discovery endpoints for the models and providers available on the network. Faithful transcription of the published API documentation; not a provider-published OpenAPI.
+  version: '1.0'
+  contact:
+    name: Sahara AI Developer Platform
+    url: https://docs.saharaai.com/developer-docs-ai-developer-portal/api-documentation
+  x-apisjson-generated: true
+  x-source: https://docs.saharaai.com/developer-docs-ai-developer-portal/api-documentation.md
+servers:
+- url: https://app.saharaai.com/developer/api
+  description: AI Developer Platform compute API
+- url: https://portal.saharalabs.ai/api
+  description: Developer Portal (Sahara Labs) compute API
+security:
+- ApiKeyAuth: []
+- BearerAuth: []
+tags:
+- name: Discovery
+  description: Discover models and compute providers available on the network.
+paths:
+  /compute/models:
+    get:
+      operationId: listModels
+      summary: List all available models
+      description: Fetches all registered models across compute providers. Optionally filter to a single provider with the `provider` query parameter.
+      tags:
+      - Discovery
+      parameters:
+      - name: provider
+        in: query
+        required: false
+        description: Filter models to a specific compute provider.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A list of available models.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelList'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /compute/providers:
+    get:
+      operationId: listProviders
+      summary: List all compute providers
+      description: Lists all compute providers on the network (e.g. OpenAI, Lepton, Together). Optionally filter to the providers that serve a specific model with the `model` query parameter.
+      tags:
+      - Discovery
+      parameters:
+      - name: model
+        in: query
+        required: false
+        description: Filter providers to those serving a specific model.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A list of compute providers.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProviderList'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /compute/modelDetail:
+    get:
+      operationId: getModelDetail
+      summary: Get model metadata
+      description: Fetch metadata and detailed usage requirements for a specific model-provider pair.
+      tags:
+      - Discovery
+      parameters:
+      - name: model
+        in: query
+        required: false
+        description: Model identifier to fetch details for.
+        schema:
+          type: string
+      - name: provider
+        in: query
+        required: false
+        description: Provider serving the model.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Model metadata and usage requirements.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelDetail'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+components:
+  schemas:
+    ModelDetail:
+      type: object
+      description: Metadata and usage requirements for a model-provider pair.
+      properties:
+        id:
+          type: string
+        provider:
+          type: string
+    Provider:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Provider name (e.g. OpenAI, Lepton, Together).
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            message:
+              type: string
+            type:
+              type: string
+            code:
+              type: string
+    ModelList:
+      type: object
+      description: A collection of models registered across providers.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Model'
+    ProviderList:
+      type: object
+      description: A collection of compute providers.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Provider'
+    Model:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Model identifier (e.g. gpt-4o).
+        provider:
+          type: string
+          description: Compute provider serving this model.
+  responses:
+    NotFound:
+      description: Not found — verify pipeline or model IDs.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Bad request — check request formatting.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    ServerError:
+      description: Internal server error — retry or contact support.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: API key issued from the Developer Portal. Passed in the `x-api-key` header. Never expose your API key in public code or repositories.
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: API key passed as a Bearer token in the Authorization header (OpenAI-compatible clients).
