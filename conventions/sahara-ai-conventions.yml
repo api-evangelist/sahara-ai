@@ -1,0 +1,36 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.saharaai.com/developer-docs-ai-developer-portal/api-documentation.md
+authentication:
+  style: api-key
+  header: x-api-key
+  bearer_alt: true
+  bearer_note: >-
+    OpenAI-compatible clients pass the key as a Bearer token in the
+    Authorization header.
+  docs: https://docs.saharaai.com/developer-docs-ai-developer-portal/api-documentation
+  cross_ref: authentication/sahara-ai-authentication.yml
+provider_routing:
+  header: OpenAI-Organization
+  note: Selects the upstream compute provider (OpenAI, Lepton, Together, ...).
+compatibility:
+  openai_sdk: true
+  langchain: true
+  openai_agents_sdk: true
+streaming:
+  supported: true
+  note: chat/completions supports streaming responses.
+idempotency:
+  supported: false
+  note: No idempotency key/header is documented for the Compute API.
+pagination:
+  supported: false
+  note: Discovery endpoints return full collections; no pagination params documented.
+error_envelope:
+  field: error
+  shape: '{ error: { message, type, code } }'
+  cross_ref: errors/sahara-ai-problem-types.yml
+versioning:
+  scheme: none-documented
+rate_limits:
+  documented: false

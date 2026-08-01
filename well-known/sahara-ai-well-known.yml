@@ -1,0 +1,24 @@
+generated: '2026-07-21'
+method: searched
+source: probed /.well-known/ on Sahara AI hosts
+hosts:
+  - host: https://app.saharaai.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+  - host: https://saharaai.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+  - host: https://portal.saharalabs.ai
+    documents:
+      - path: /.well-known/openid-configuration
+        status: 0
+        note: no response / host not reachable at this path
+notes: >-
+  No /.well-known/ discovery documents were published on any Sahara AI host at
+  probe time. Absence recorded as valid negative data.

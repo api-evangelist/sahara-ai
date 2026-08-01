@@ -1,0 +1,23 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/sahara-ai-compute-openapi.yml
+format: openai-error-envelope
+envelope:
+  field: error
+  shape: '{ error: { message, type, code } }'
+notes: >-
+  Derived from the documented Compute API responses. Errors are returned in an
+  OpenAI-style error envelope (not RFC 9457 problem+json).
+problems:
+  - status: 400
+    title: Bad request
+    remediation: Check request formatting (model name, message array, headers).
+    source_operation: openapi/sahara-ai-compute-openapi.yml#createChatCompletion
+  - status: 404
+    title: Not found
+    remediation: Verify the pipeline or model/provider IDs.
+    source_operation: openapi/sahara-ai-compute-openapi.yml#getModelDetail
+  - status: 500
+    title: Internal server error
+    remediation: Retry the request; if it persists, contact support.
+    source_operation: openapi/sahara-ai-compute-openapi.yml#createChatCompletion

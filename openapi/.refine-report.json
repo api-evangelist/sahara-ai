@@ -1,0 +1,16 @@
+{
+  "provider": "sahara-ai",
+  "sources": [
+    "sahara-ai-discovery-api-openapi.yml",
+    "sahara-ai-inference-api-openapi.yml"
+  ],
+  "outputs": [
+    "sahara-ai-discovery-api-openapi.yml",
+    "sahara-ai-inference-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

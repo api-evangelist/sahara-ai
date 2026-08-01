@@ -1,0 +1,25 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/sahara-ai-compute-openapi.yml
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - header
+schemes:
+- name: ApiKeyAuth
+  type: apiKey
+  in: header
+  parameter: x-api-key
+  description: API key issued from the Developer Portal. Passed in the `x-api-key` header. Never
+    expose your API key in public code or repositories.
+  sources:
+  - openapi/sahara-ai-compute-openapi.yml
+- name: BearerAuth
+  type: http
+  scheme: bearer
+  description: API key passed as a Bearer token in the Authorization header (OpenAI-compatible
+    clients).
+  sources:
+  - openapi/sahara-ai-compute-openapi.yml

@@ -1,0 +1,7 @@
+generated: '2026-07-21'
+method: generated
+skills:
+  - file: sahara-ai-run-inference.md
+    name: Run OpenAI-compatible inference on Sahara AI
+    api: openapi/sahara-ai-compute-openapi.yml
+    operations: [listModels, listProviders, getModelDetail, createChatCompletion]

@@ -1,22 +1,76 @@
 aid: sahara-ai
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/sahara-ai.png
 name: Sahara AI
-description: 'Sahara AI is a company surfaced as a portfolio company of pantera-capital and added to the
-  API Evangelist network as a stub for enrichment. Sector: crypto. This profile is a lead awaiting the
-  enrichment pipeline.'
+description: >-
+  Sahara AI is a decentralized AI platform (backed by Pantera Capital) building
+  infrastructure for the agentic economy: an AI Developer Platform for building
+  agents, managing datasets, and accessing compute; an AI Marketplace for
+  publishing and monetizing AI solutions; a Data Services Platform for
+  collecting, labeling, and validating training data; consumer agents such as
+  Sorin (autonomous trading); and the Sahara blockchain with the $SAHARA token
+  for settlement and governance. Its developer-facing surface is an
+  OpenAI-compatible Compute API that routes inference across multiple upstream
+  providers (OpenAI, Lepton, Together, and others) alongside model- and
+  provider-discovery endpoints, authenticated with an API key.
 url: https://raw.githubusercontent.com/api-evangelist/sahara-ai/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - pantera-capital
-x-tier: stub
-x-tier-reason: portfolio-lead
-specificationVersion: '0.20'
-created: '2026-07-17'
-modified: '2026-07-17'
 tags:
 - Company
 - Crypto
-apis: []
+- Artificial Intelligence
+- Machine Learning
+- Agents
+- Compute
+- Blockchain
+- Inference
+- Data
+specificationVersion: '0.20'
+created: '2026-07-17'
+modified: '2026-07-21'
+apis:
+- aid: sahara-ai:sahara-ai-discovery-api
+  name: Sahara AI Discovery API
+  description: Discover models and compute providers available on the network.
+  humanURL: https://docs.saharaai.com/developer-docs-ai-developer-portal/api-documentation
+  baseURL: https://app.saharaai.com/developer/api
+  tags:
+  - Discovery
+  properties:
+  - type: OpenAPI
+    url: openapi/sahara-ai-discovery-api-openapi.yml
+  - type: ErrorCatalog
+    url: errors/sahara-ai-problem-types.yml
+  - type: DataModel
+    url: data-model/sahara-ai-data-model.yml
+- aid: sahara-ai:sahara-ai-inference-api
+  name: Sahara AI Inference API
+  description: OpenAI-compatible chat completion inference.
+  humanURL: https://docs.saharaai.com/developer-docs-ai-developer-portal/api-documentation
+  baseURL: https://app.saharaai.com/developer/api
+  tags:
+  - Inference
+  properties:
+  - type: OpenAPI
+    url: openapi/sahara-ai-inference-api-openapi.yml
+  - type: ErrorCatalog
+    url: errors/sahara-ai-problem-types.yml
+  - type: DataModel
+    url: data-model/sahara-ai-data-model.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -25,3 +79,48 @@ maintainers:
 common:
 - type: Website
   url: https://saharaai.com/
+- type: DeveloperPortal
+  url: https://app.saharaai.com/developer-platform/main/explore
+- type: Documentation
+  url: https://docs.saharaai.com/
+- type: APIReference
+  url: https://docs.saharaai.com/developer-docs-ai-developer-portal/api-documentation
+- type: GettingStarted
+  url: https://docs.saharaai.com/developer-docs-ai-developer-portal/quick-start-guide
+- type: Blog
+  url: https://saharaai.com/blog
+- type: Support
+  url: https://saharaai.com/community
+- type: GitHubOrganization
+  url: https://github.com/SaharaAI-Agents
+- type: Pricing
+  url: https://docs.saharaai.com/developer-docs-ai-developer-portal/credits-and-billing
+- type: SignUp
+  url: https://app.saharaai.com/
+- type: TermsOfService
+  url: https://saharaai.com/legal/terms-of-use
+- type: PrivacyPolicy
+  url: https://saharaai.com/legal/privacy-policy
+- type: LLMsTxt
+  url: llms/sahara-ai-llms.txt
+- type: WellKnown
+  url: well-known/sahara-ai-well-known.yml
+- type: MCPServer
+  url: mcp/sahara-ai-mcp.yml
+- type: Conformance
+  url: conformance/sahara-ai-conformance.yml
+- type: Conventions
+  url: conventions/sahara-ai-conventions.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: DomainSecurity
+  url: security/sahara-ai-domain-security.yml
+- type: AgenticAccess
+  url: agentic-access/sahara-ai-agentic-access.yml
+- type: Authentication
+  url: authentication/sahara-ai-authentication.yml
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  pass: local-v1
+  artifacts_added: 14

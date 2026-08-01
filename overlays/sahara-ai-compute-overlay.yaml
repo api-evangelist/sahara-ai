@@ -1,0 +1,23 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Sahara AI Compute API
+  version: 1.0.0
+extends: openapi/sahara-ai-compute-openapi.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-rating: 3
+      x-openai-compatible: true
+      x-provider-routing-header: OpenAI-Organization
+  - target: $.tags
+    update:
+      - name: Discovery
+        description: Discover models and compute providers available on the network.
+      - name: Inference
+        description: OpenAI-compatible chat completion inference.
+  - target: $.paths['/compute/chat/completions'].post
+    update:
+      x-apievangelist-notes: >-
+        OpenAI-compatible endpoint. Works with the OpenAI Python/JS SDK,
+        LangChain, and the OpenAI Agents SDK by pointing base_url at the Sahara
+        compute API and passing the API key. Supports streaming.

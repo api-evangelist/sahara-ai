@@ -1,0 +1,27 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/sahara-ai-compute-openapi.yml
+standards:
+  - id: openai-chat-completions
+    conforms: true
+    evidence: >-
+      /compute/chat/completions is OpenAI-compatible; response follows the
+      OpenAI chat completion object shape (choices/usage/created/model).
+  - id: api-key-auth
+    conforms: true
+    evidence: x-api-key header + Bearer token security schemes in OpenAPI.
+  - id: oauth2
+    conforms: false
+    evidence: no oauth2 security scheme documented.
+  - id: oidc
+    conforms: false
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: >-
+      errors returned as an OpenAI-style {error:{message,type,code}} envelope,
+      not application/problem+json.
+  - id: json-api
+    conforms: false
+  - id: pagination
+    conforms: false
+    evidence: discovery endpoints return full collections; no pagination params documented.

@@ -1,0 +1,26 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/sahara-ai-compute-openapi.yml
+entities:
+  - name: Model
+    description: An AI model registered on the network, served by one or more providers.
+    key_fields: [id, provider]
+  - name: Provider
+    description: A compute provider serving models (OpenAI, Lepton, Together, ...).
+    key_fields: [name]
+  - name: ChatCompletion
+    description: An OpenAI-format inference result produced against a model.
+    key_fields: [id, model, created]
+relationships:
+  - from: Model
+    to: Provider
+    type: belongs_to
+    via: provider
+  - from: Provider
+    to: Model
+    type: has_many
+    via: model
+  - from: ChatCompletion
+    to: Model
+    type: belongs_to
+    via: model
