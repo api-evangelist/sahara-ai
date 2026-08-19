@@ -2,24 +2,28 @@ generated: '2026-07-21'
 method: derived
 status: candidate
 source: openapi/sahara-ai-compute-openapi.yml
-notes: >-
-  No official hosted or remote MCP server was found for Sahara AI at enrichment
-  time. This is a DERIVED candidate tool list mapping the documented Compute API
-  operations to MCP tools, provided as a governance starting point — not a
-  provider-published server.
+notes: No official hosted or remote MCP server was found for Sahara AI at enrichment time. This is a DERIVED
+  candidate tool list mapping the documented Compute API operations to MCP tools, provided as a governance
+  starting point — not a provider-published server.
 server:
   name: sahara-ai-compute
   transport: http
 tools:
-  - name: list_models
-    description: List all models registered across compute providers.
-    source_operation: openapi/sahara-ai-compute-openapi.yml#listModels
-  - name: list_providers
-    description: List all compute providers on the network.
-    source_operation: openapi/sahara-ai-compute-openapi.yml#listProviders
-  - name: get_model_detail
-    description: Fetch metadata and usage requirements for a model-provider pair.
-    source_operation: openapi/sahara-ai-compute-openapi.yml#getModelDetail
-  - name: create_chat_completion
-    description: Send an OpenAI-compatible chat completion inference request.
-    source_operation: openapi/sahara-ai-compute-openapi.yml#createChatCompletion
+- name: list_models
+  description: List all models registered across compute providers.
+  source_operation: openapi/sahara-ai-compute-openapi.yml#listModels
+- name: list_providers
+  description: List all compute providers on the network.
+  source_operation: openapi/sahara-ai-compute-openapi.yml#listProviders
+- name: get_model_detail
+  description: Fetch metadata and usage requirements for a model-provider pair.
+  source_operation: openapi/sahara-ai-compute-openapi.yml#getModelDetail
+- name: create_chat_completion
+  description: Send an OpenAI-compatible chat completion inference request.
+  source_operation: openapi/sahara-ai-compute-openapi.yml#createChatCompletion
+deployment:
+  mode: none
+  verified: derived
+  tools: 4
+  checked: '2026-08-12'
+  source: catalog MCP census

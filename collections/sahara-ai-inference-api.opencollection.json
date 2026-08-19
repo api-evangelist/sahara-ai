@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sahara AI Compute Discovery Inference API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Inference",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a chat completion",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.saharaai.com/developer/api/compute/chat/completions",
+            "headers": [
+              {
+                "name": "OpenAI-Organization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send an OpenAI-compatible inference request. Compatible with the OpenAI SDK, LangChain, and the OpenAI Agents SDK. Supports streaming responses. The target provider may be selected via the `OpenAI-Organization` header."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

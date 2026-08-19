@@ -1,0 +1,89 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sahara AI Compute Discovery API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Discovery",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all available models",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.saharaai.com/developer/api/compute/models",
+            "params": [
+              {
+                "name": "provider",
+                "value": "",
+                "type": "query",
+                "description": "Filter models to a specific compute provider."
+              }
+            ]
+          },
+          "docs": "Fetches all registered models across compute providers. Optionally filter to a single provider with the `provider` query parameter."
+        },
+        {
+          "info": {
+            "name": "List all compute providers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.saharaai.com/developer/api/compute/providers",
+            "params": [
+              {
+                "name": "model",
+                "value": "",
+                "type": "query",
+                "description": "Filter providers to those serving a specific model."
+              }
+            ]
+          },
+          "docs": "Lists all compute providers on the network (e.g. OpenAI, Lepton, Together). Optionally filter to the providers that serve a specific model with the `model` query parameter."
+        },
+        {
+          "info": {
+            "name": "Get model metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.saharaai.com/developer/api/compute/modelDetail",
+            "params": [
+              {
+                "name": "model",
+                "value": "",
+                "type": "query",
+                "description": "Model identifier to fetch details for."
+              },
+              {
+                "name": "provider",
+                "value": "",
+                "type": "query",
+                "description": "Provider serving the model."
+              }
+            ]
+          },
+          "docs": "Fetch metadata and detailed usage requirements for a specific model-provider pair."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
