@@ -1,0 +1,32 @@
+# Front Door AI Index — sahara-ai — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: sahara-ai
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: saharaai.com
+  final_host: saharaai.com
+  ownership: own
+  owner: sahara-ai
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 57
+  host_score: 57
+  density: 69.26
+  words: 823
+  tiers:
+    agentic: 16
+    core: 38
+    model: 3
+  ambiguous: 18
+  top_terms:
+    AI: 38
+    agent: 18
+    AI agent: 6
+    agentic: 6
+    Claude: 3
+    chatbot: 2
+    AI assistant: 1
+    copilot: 1

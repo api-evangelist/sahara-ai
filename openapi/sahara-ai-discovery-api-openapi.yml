@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Sahara AI Compute Discovery API
   description: OpenAI-compatible inference and model-discovery API for the Sahara AI Developer Platform. Exposes a routed compute layer that fans requests out across multiple upstream providers (OpenAI, Lepton, Together, and others), plus discovery endpoints for the models and providers available on the network. Faithful transcription of the published API documentation; not a provider-published OpenAPI.
@@ -117,12 +117,37 @@ components:
           type: string
         provider:
           type: string
+    ModelList:
+      type: object
+      description: A collection of models registered across providers.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Model'
+    Model:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Model identifier (e.g. gpt-4o).
+        provider:
+          type: string
+          description: Compute provider serving this model.
     Provider:
       type: object
       properties:
         name:
           type: string
           description: Provider name (e.g. OpenAI, Lepton, Together).
+    ProviderList:
+      type: object
+      description: A collection of compute providers.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Provider'
     Error:
       type: object
       properties:
@@ -135,31 +160,6 @@ components:
               type: string
             code:
               type: string
-    ModelList:
-      type: object
-      description: A collection of models registered across providers.
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Model'
-    ProviderList:
-      type: object
-      description: A collection of compute providers.
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Provider'
-    Model:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Model identifier (e.g. gpt-4o).
-        provider:
-          type: string
-          description: Compute provider serving this model.
   responses:
     NotFound:
       description: Not found — verify pipeline or model IDs.
