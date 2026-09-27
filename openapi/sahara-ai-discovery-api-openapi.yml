@@ -109,6 +109,24 @@ paths:
           $ref: '#/components/responses/ServerError'
 components:
   schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            message:
+              type: string
+            type:
+              type: string
+            code:
+              type: string
+    Provider:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Provider name (e.g. OpenAI, Lepton, Together).
     ModelDetail:
       type: object
       description: Metadata and usage requirements for a model-provider pair.
@@ -117,6 +135,14 @@ components:
           type: string
         provider:
           type: string
+    ProviderList:
+      type: object
+      description: A collection of compute providers.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Provider'
     ModelList:
       type: object
       description: A collection of models registered across providers.
@@ -134,32 +160,6 @@ components:
         provider:
           type: string
           description: Compute provider serving this model.
-    Provider:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Provider name (e.g. OpenAI, Lepton, Together).
-    ProviderList:
-      type: object
-      description: A collection of compute providers.
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Provider'
-    Error:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            message:
-              type: string
-            type:
-              type: string
-            code:
-              type: string
   responses:
     NotFound:
       description: Not found — verify pipeline or model IDs.

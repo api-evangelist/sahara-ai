@@ -46,7 +46,7 @@ tags:
 - Company
 - Crypto
 - Artificial Intelligence
-- Machine-Learning
+- Machine Learning
 - Agents
 - Compute
 - Blockchain
@@ -62,6 +62,7 @@ tags_raw:
 - Blockchain
 - Inference
 - Data
+- Machine-Learning
 specificationVersion: '0.23'
 created: '2026-07-17'
 modified: '2026-07-21'
