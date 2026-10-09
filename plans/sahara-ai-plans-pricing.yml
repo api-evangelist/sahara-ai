@@ -1,0 +1,23 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-07'
+method: searched
+source: https://docs.saharaai.com/developer-docs-ai-developer-portal/credits-and-billing
+sources:
+- https://docs.saharaai.com/developer-docs-ai-developer-portal/credits-and-billing
+provenance:
+  tool: all/0-working/economics/harvest_pricing.py
+  run: 20261007T104522
+  grounding: every price_text was found verbatim in the fetched page text
+audience: developer-api
+pricing_basis: per-call
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-10-07'
+published: false
+note: No numeric price is published on the pricing page; Documentation page explaining how to add/redeem
+  credits for the AI Developer Platform (usage billed on API calls, token usage, compute hours). It states
+  only the credit conversion '1 credit=1 USDT' and gives no rates or prices for any service, so no numeric
+  pricing is published.
+plan_count: 0
+plans: []
