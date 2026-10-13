@@ -1,0 +1,23 @@
+edges:
+- partner_name: OpenAI
+  partner: openai
+  partner_match: domain
+  type: contract
+  channel: provider-built
+  relationship: compatible
+  direction: provider-built
+  evidence: https://github.com/api-evangelist/sahara-ai/blob/main/openapi/sahara-ai-discovery-api-openapi.yml#L4
+  contract_reference:
+    repo: sahara-ai
+    spec_file: sahara-ai-discovery-api-openapi.yml
+    property: description
+    value: OpenAI-compatible
+    note: 'sahara-ai declares OpenAI compatibility: ''description: OpenAI-compatible inference and model-discovery
+      API for the Sahara AI Developer Platform. Exposes a routed compute layer that fans requests out acr'''
+    detected_by: sweep-model-routing.py
+    detected: '2026-10-13'
+  detected_by: sweep-model-routing.py
+  first_seen: '2026-10-13'
+generated: '2026-10-13'
+method: searched
+checked: []
