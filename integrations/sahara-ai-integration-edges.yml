@@ -15,7 +15,7 @@ edges:
     note: 'sahara-ai declares OpenAI compatibility: ''description: OpenAI-compatible inference and model-discovery
       API for the Sahara AI Developer Platform. Exposes a routed compute layer that fans requests out acr'''
     detected_by: sweep-model-routing.py
-    detected: '2026-10-13'
+    detected: '2026-10-15'
   detected_by: sweep-model-routing.py
   first_seen: '2026-10-13'
 generated: '2026-10-13'
