@@ -108,22 +108,26 @@ paths:
         '500':
           $ref: '#/components/responses/ServerError'
 components:
+  responses:
+    NotFound:
+      description: Not found — verify pipeline or model IDs.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Bad request — check request formatting.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    ServerError:
+      description: Internal server error — retry or contact support.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
-    Model:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Model identifier (e.g. gpt-4o).
-        provider:
-          type: string
-          description: Compute provider serving this model.
-    Provider:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Provider name (e.g. OpenAI, Lepton, Together).
     Error:
       type: object
       properties:
@@ -136,14 +140,6 @@ components:
               type: string
             code:
               type: string
-    ProviderList:
-      type: object
-      description: A collection of compute providers.
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Provider'
     ModelDetail:
       type: object
       description: Metadata and usage requirements for a model-provider pair.
@@ -152,6 +148,21 @@ components:
           type: string
         provider:
           type: string
+    Provider:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Provider name (e.g. OpenAI, Lepton, Together).
+    Model:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Model identifier (e.g. gpt-4o).
+        provider:
+          type: string
+          description: Compute provider serving this model.
     ModelList:
       type: object
       description: A collection of models registered across providers.
@@ -160,25 +171,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Model'
-  responses:
-    BadRequest:
-      description: Bad request — check request formatting.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Not found — verify pipeline or model IDs.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    ServerError:
-      description: Internal server error — retry or contact support.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+    ProviderList:
+      type: object
+      description: A collection of compute providers.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Provider'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
