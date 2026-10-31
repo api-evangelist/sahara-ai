@@ -64,6 +64,128 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Sahara AI is a company surfaced as a portfolio company of pantera-capital and added to the API Evangelist network as a stub for enrichment. Sector: crypto. This profile is a lead awaiting the enrichment pipeline.
+Sahara AI is a decentralized AI platform (backed by Pantera Capital) building infrastructure for the agentic economy: an AI Developer Platform for building agents, managing datasets, and accessing compute; an AI Marketplace for publishing and monetizing AI solutions; a Data Services Platform for collecting, labeling, and validating training data; consumer agents such as Sorin (autonomous trading); and the Sahara blockchain with the $SAHARA token for settlement and governance. Its developer-facing surface is an OpenAI-compatible Compute API that routes inference across multiple upstream providers (OpenAI, Lepton, Together, and others) alongside model- and provider-discovery endpoints, authenticated with an API key.
 
-Backed by: pantera-capital — https://saharaai.com/
+**Areas:** Company · Cryptocurrency · Artificial Intelligence · Machine Learning · Agents · Compute · Blockchain · Inference · Data
+
+## Sahara AI on APIs.io
+
+Everything profiled for Sahara AI is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/sahara-ai/](https://apis.io/providers/sahara-ai/)** — or go straight to one of the APIs or properties below.
+
+### APIs (2)
+
+- [Sahara AI Discovery API](https://apis.io/apis/sahara-ai/sahara-ai-discovery-api/) — Discover models and compute providers available on the network.
+- [Sahara AI Inference API](https://apis.io/apis/sahara-ai/sahara-ai-inference-api/) — OpenAI-compatible chat completion inference.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [sahara-ai-compute](https://apis.io/servers/sahara-ai/sahara-ai-compute/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Sahara Ai Agentic Access](https://apis.io/agentic-access/sahara-ai/sahara-ai-agentic-access/)
+
+#### Collections (2)
+
+Postman and Open Collection request collections.
+
+- [Sahara AI Compute Discovery API](https://apis.io/collections/sahara-ai/open-sahara-ai-discovery-api/)
+- [Sahara AI Compute Discovery Inference API](https://apis.io/collections/sahara-ai/open-sahara-ai-inference-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Sahara Ai Compute Overlay](https://apis.io/overlays/sahara-ai/sahara-ai-compute-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Sahara Ai Authentication](https://apis.io/security/sahara-ai/sahara-ai-authentication/)
+- [Sahara Ai Domain Security](https://apis.io/security/sahara-ai/sahara-ai-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Sahara Ai Plans Pricing](https://apis.io/plans/sahara-ai/sahara-ai-plans-pricing/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://saharaai.com/)
+- [Documentation](https://docs.saharaai.com/)
+- [Getting started](https://docs.saharaai.com/developer-docs-ai-developer-portal/quick-start-guide)
+- [API reference](https://docs.saharaai.com/developer-docs-ai-developer-portal/api-documentation)
+- [Pricing](https://docs.saharaai.com/developer-docs-ai-developer-portal/credits-and-billing)
+- [Sign up](https://app.saharaai.com/)
+- [Support](https://saharaai.com/community)
+- [Blog](https://saharaai.com/blog)
+- [Terms of service](https://saharaai.com/legal/terms-of-use)
+- [Privacy policy](https://saharaai.com/legal/privacy-policy)
+- [GitHub](https://github.com/SaharaAI-Agents)
+
+## API Evangelist rating
+
+**Kin Score 42.4** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 52.3 |
+| Contract governance | 4.5 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 58.9 |
+| Access clarity | 44.7 |
+
+**Agent readiness 19.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 22.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/sahara-ai/](https://apis.io/providers/sahara-ai/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Sahara AI: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/sahara-ai/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
